@@ -4,21 +4,19 @@ using namespace std;
 
 int lerMatriz(){
     int aux = 999;
-    short int linhas = 3;
-    short int colunas = 3;
+	
+    int matriz[3][3] = {{7,9,2},{12,43,25},{10,5,3}}; 
     
-    int matriz[linhas][colunas] = {{7,9,2},{12,43,25},{10,5,3},{47,32,13}}; 
-    
-    for (int i = 0; i<=linhas; i++){
-        for (int j = 0; j<=colunas; j++){
-            if (matriz[i][j] < aux){
+    for (int i = 0; i<3; i++){
+        for (int j = 0; j<3; j++){
+    }        if (matriz[i][j] < aux){
                 aux = matriz[i][j];
             }
         }
     }
     
-    for (int i = 0; i <= linhas; i++){
-        for(int j =0; j<= colunas; j++){
+    for (int i = 0; i < linhas; i++){
+        for(int j =0; j< colunas; j++){
             if (matriz[i][j] == aux){
                 return i;
             }
