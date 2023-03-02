@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <stdlib.h> // For exit()
+#include <stdlib.h>
 
 int main()
 {
@@ -10,7 +10,6 @@ int main()
 	printf("Digite o nome do arquivo \n");
 	scanf("%s", nomeArquivo);
 
-	// Open file
 	arquivo = fopen(nomeArquivo, "r");
 	if (arquivo == NULL)
 	{
@@ -18,7 +17,6 @@ int main()
 		exit(0);
 	}
 
-	// Read contents from file
 	c = fgetc(arquivo);
 	while (c != EOF)
 	{
