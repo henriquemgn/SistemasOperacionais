@@ -27,6 +27,7 @@ int main()
 		c = fgetc(arquivo);
 	}
 
+	fclose(saida);
 	fclose(arquivo);
 	return 0;
 }
