@@ -1,6 +1,6 @@
 # SistemasOperacionais
 
-## 02/03/2023 - Aula 3
+## Aula 3 - 02/03/2023
 
 ### Exercicio 1 -
 As principais chamadas de sistema foram open, write, read, exit e close<br>
