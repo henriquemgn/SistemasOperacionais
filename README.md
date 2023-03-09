@@ -18,3 +18,4 @@ Quando executado chamando ./Exemplo05.bin 999 retorna ordenado pelo valor de i a
 
 ### Exercicio 2 -
 Se fosse usado print ao invés de sys.stderr, as mensagens sairiam na saída padrão (stdout) ao invés de na saída de erro (stderr).
+stderr separa as saídas entre de erro e saídas stdout padrão
