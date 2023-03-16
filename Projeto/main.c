@@ -18,10 +18,18 @@ irá comer, e após abaixar os garfos o proximo da lista comerá e o proximo dis
 void imprimir(char *mesa[], int fome[]){
     for(int i = 0; i < 10; i++){
         printf("%s ",mesa[i]);
-    }
+    }        
+    printf("\n\n");
+    
+    printf("Filosofo 1 esta com o prato %d por cento cheio\n",fome[0]);
+    printf("Filosofo 2 esta com o prato %d por cento cheio\n",fome[1]);
+    printf("Filosofo 3 esta com o prato %d por cento cheio\n",fome[2]);
+    printf("Filosofo 4 esta com o prato %d por cento cheio\n",fome[3]);
+    printf("Filosofo 5 esta com o prato %d por cento cheio\n",fome[4]);
 }
 
 char** resetGarfos(char *mesa[]){
+    // funcao que reseta os garfos para a posição 1
     mesa[0] = "1";
     mesa[2] = "1";
     mesa[4] = "1";
@@ -32,18 +40,17 @@ char** resetGarfos(char *mesa[]){
 }
 
 char* verificadorFome(int fome[], char *mesa[]){
-    
-    if(fome[0] >= fome[1] && fome[0] >= fome[2] && fome[0] >= fome[3] && fome[0] >= fome[4]){
+
+    if(fome[0] >= fome[1] && fome[0] >= fome[2] && fome[0] >= fome[3] && fome[0] >= fome[4]){ // SE TODOS ESTIVEREM 100 ou se Filosofo 1 estiver com o prato mais cheio que os outros
         if (mesa[0] == "1" && mesa[2] == "1"){
             return "fome1";
-        }else if(fome[1] >= fome[2] && fome[1] >= fome[3] && fome[1] >= fome[4] && mesa[2]=="1" && mesa[4]=="1"){
+        }else if(fome[1] >= fome[2] && fome[1] >= fome[3] && fome[1] >= fome[4] && mesa[2]=="1" && mesa[4]=="1"){ // SE TODOS ESTIVEREM 100 MENOS O FILOSOFO 1 OU se Filoso 2 estiver com o prato mais cheio que os outros
             return "fome2";
-        }else if(fome[2] >= fome[3] && fome[2] >= fome[4] && mesa[4]=="1" && mesa[6]=="1"){
-            printf("teste1");
+        }else if(fome[2] >= fome[3] && fome[2] >= fome[4] && mesa[4]=="1" && mesa[6]=="1"){// SE TODOS ESTIVEREM 100 MENOS O FILOSOFO 1 e 2 OU se Filoso 3 estiver com o prato mais cheio que os outros
             return "fome3";
-        }else if(fome[3] >= fome[4] && mesa[6]=="1" && mesa[8]=="1"){
+        }else if(fome[3] >= fome[4] && mesa[6]=="1" && mesa[8]=="1"){// SE TODOS ESTIVEREM 100 MENOS O FILOSOFO 1, 2 e 3 OU se Filoso 4 estiver com o prato mais cheio que os outros
             return "fome4";
-        }else if(mesa[8] == "1" && mesa[0] == "1"){
+        }else if(mesa[8] == "1" && mesa[0] == "1"){// SE Filosofo 5 estiver com o prato mais cheio que os outros
             return "fome5";
         }
     }
@@ -52,7 +59,6 @@ char* verificadorFome(int fome[], char *mesa[]){
         if (mesa[2] == "1" && mesa[4] == "1"){
             return "fome2";
         }else if(fome[2] >= fome[3] && fome[2] >= fome[4] && mesa[4]=="1" && mesa[6]=="1"){
-            printf("teste2");
             return "fome3";
         }else if(fome[3] >= fome[4] && mesa[6]=="1" && mesa[8]=="1"){
             return "fome4";
@@ -63,7 +69,7 @@ char* verificadorFome(int fome[], char *mesa[]){
     
     if(fome[2] >= fome[3] && fome[2] >= fome[4]){
         if (mesa[4] == "1" && mesa[6] == "1"){
-            printf("teste3");
+
             return "fome3";
         }else if(fome[3] >= fome[4] && mesa[6]=="1" && mesa[8]=="1"){
             return "fome4";
@@ -74,7 +80,7 @@ char* verificadorFome(int fome[], char *mesa[]){
     
     if(fome[3] >= fome[4]){
         if (mesa[6] == "1" && mesa[8] == "1"){
-            return "fome3";
+            return "fome4";
         }
     }else if(mesa[8] == "1" && mesa[0] == "1"){
             return "fome5";
@@ -87,62 +93,55 @@ char* verificadorFome(int fome[], char *mesa[]){
 
 void filosofosComem(int fome[], char *mesa[]){
     
-    int pip[2];
-    pipe(pip);
-    
     if (fome[0] <= 0 && fome[1] <= 0 && fome[2] <= 0 && fome[3] <= 0 && fome[4] <= 0){
         printf("\n Todos terminaram de comer");
     }
-    
-    char *aux = verificadorFome(fome,mesa);
-    mesa = resetGarfos(mesa);
-    for(int i = 0; i < 2; i++){
-        if (aux == "fome1" && fome[0]>0){
-            printf("Filoso 1 comendo.\n");
-            fome[0] -= 50;
-            mesa[0] = "0";
-            mesa[2] = "0";
-            aux = verificadorFome(fome,mesa);
-        }else if(aux == "fome2" && fome[1]>0){
-            printf("Filoso 2 comendo.\n");
-            fome[1] -= 50;
-            mesa[2] = "0";
-            mesa[4] = "0";
-            aux = verificadorFome(fome,mesa);
-        }else if(aux == "fome3" && fome[2]>0){
-            printf("Filoso 3 comendo.\n");
-            fome[2] -= 50;
-            mesa[4] = "0";
-            mesa[6] = "0";
-            aux = verificadorFome(fome,mesa);
-        }else if(aux == "fome4" && fome[3]>0){
-            printf("Filoso 4 comendo.\n");
-            fome[3] -= 50;
-            mesa[6] = "0";
-            mesa[8] = "0";
-            aux = verificadorFome(fome,mesa);
-        }else if(aux == "fome5" && fome[4]>0){
-            printf("Filoso 5 comendo.\n");
-            fome[4] -= 50;
-            mesa[8] = "0";
-            mesa[0] = "0";
-            aux = verificadorFome(fome,mesa);
+    else{
+        char *aux = verificadorFome(fome,mesa);
+        mesa = resetGarfos(mesa);
+        printf("\n\n Nova Rodada\n");
+        for(int i = 0; i < 2; i++){
+            if (aux == "fome1" && fome[0]>0){
+                printf("Filoso 1 comendo.\n");
+                fome[0] -= 20;
+                mesa[0] = "0";
+                mesa[2] = "0";
+                aux = verificadorFome(fome,mesa);
+            }else if(aux == "fome2" && fome[1]>0){
+                printf("Filoso 2 comendo.\n");
+                fome[1] -= 20;
+                mesa[2] = "0";
+                mesa[4] = "0";
+                aux = verificadorFome(fome,mesa);
+            }else if(aux == "fome3" && fome[2]>0){
+                printf("Filoso 3 comendo.\n");
+                fome[2] -= 20;
+                mesa[4] = "0";
+                mesa[6] = "0";
+                aux = verificadorFome(fome,mesa);
+            }else if(aux == "fome4" && fome[3]>0){
+                printf("Filoso 4 comendo.\n");
+                fome[3] -= 20;
+                mesa[6] = "0";
+                mesa[8] = "0";
+                aux = verificadorFome(fome,mesa);
+            }else if(aux == "fome5" && fome[4]>0){
+                printf("Filoso 5 comendo.\n");
+                fome[4] -= 20;
+                mesa[8] = "0";
+                mesa[0] = "0";
+                aux = verificadorFome(fome,mesa);
+            }else{
+                printf("Garfos ocupados.\n");
+            }
         }
-    }
-    
-    printf("verificarFome = %s\n",aux);
-    imprimir(mesa,fome);
-    printf("\n");
-    
-    printf("Fome[0] = %d\n",fome[0]);
-    printf("Fome[1] = %d\n",fome[1]);
-    printf("Fome[2] = %d\n",fome[2]);
-    printf("Fome[3] = %d\n",fome[3]);
-    printf("Fome[4] = %d\n",fome[4]);
-    
-    sleep(1);
-    filosofosComem(fome,mesa);
 
+        imprimir(mesa,fome);
+
+        
+        sleep(5);
+        filosofosComem(fome,mesa);
+    }
 }
 
 int main(){
