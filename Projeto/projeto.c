@@ -3,9 +3,24 @@
 #include <unistd.h>     // sleep
 #include <pthread.h>    // thread
 #include <semaphore.h>  // sem_t
+/***
+Nome: Henrique Magno dos Santos
+TIA: 42030471
 
-
-
+        Fontes:
+                Semaforos: 
+                    https://www.geeksforgeeks.org/use-posix-semaphores-c/
+                    https://greenteapress.com/thinkos/html/thinkos013.html
+                    
+                Threads:
+                    https://embarcados.com.br/threads-posix/
+                    
+                Filosofos:
+                    https://www.geeksforgeeks.org/dining-philosopher-problem-using-semaphores/
+                    https://www.youtube.com/watch?v=NbwbQQB7xNQ
+                    https://blog.pantuza.com/artigos/o-jantar-dos-filosofos-problema-de-sincronizacao-em-sistemas-operacionais
+                    https://www.vivaolinux.com.br/script/Jantar-dos-Filosofos-Programacao-Paralela
+***/
 
 sem_t garfos[5];        // Cria o array de garfos com tipo semaforo
 pthread_t Filosofos[5]; // Cria o array de filosofos com tipo Thread
