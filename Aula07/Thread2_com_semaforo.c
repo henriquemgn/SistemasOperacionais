@@ -1,14 +1,12 @@
 #include <stdio.h>      // printf
-#include <stdlib.h>     // rand
-#include <unistd.h>     // sleep
 #include <pthread.h>    // thread
 #include <semaphore.h>  // sem_t
 
 long double sum = 0;
 int thread_count = 2;
 int n = 100000;
-sem_t liberado[1];        // Cria o array de garfos com tipo semaforo
-pthread_t calculadoras[2]; // Cria o array de filosofos com tipo Thread
+sem_t liberado[1];        // Cria o array de semaforo
+pthread_t calculadoras[2]; // Cria o array de Thread
 
 void calculadora_livre(){  
     sem_wait(&liberado[0]);
@@ -52,6 +50,6 @@ int main()
         pthread_join(calculadoras[i], NULL); 
     }
     
-    printf("Sum = %Lf\n", 4*sum);
+    printf("Pi = %Lf\n", 4*sum);
     return 0;
 }
