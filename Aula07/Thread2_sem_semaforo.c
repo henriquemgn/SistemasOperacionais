@@ -1,6 +1,4 @@
 #include <stdio.h>      // printf
-#include <stdlib.h>     // rand
-#include <unistd.h>     // sleep
 #include <pthread.h>    // thread
 
 long double sum = 0;
