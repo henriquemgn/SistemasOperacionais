@@ -22,11 +22,11 @@ stderr separa as saídas entre de erro e saídas stdout padrão
 
 ## Aula 7 - 20/04/2023
 
-a) No final, entregue no README do repositório uma explicação resumida sobre as diferenças entre os valores atingidos. Quais foram as causas das divergências? Por que elas aconteceram?
+### a) No final, entregue no README do repositório uma explicação resumida sobre as diferenças entre os valores atingidos. Quais foram as causas das divergências? Por que elas aconteceram?
 
 Por conta das condições de corrida, sem a utilização de semaforos os valores não eram consistentes.
 
-b) Implemente uma solução utilizando Mutex e comparece com a anterior. O que mudou? Por quê?
+### b) Implemente uma solução utilizando Mutex e comparece com a anterior. O que mudou? Por quê?
 
 Como os semaforos/mutex impedem que seja acessado o elemento na memória caso dito elemento ja esteja em uso, não ocorre a competição para alterar a memoria. 
 Enquanto sem os semaforos/mutex estava variando entre valores estranhos, com a utilização dos semaforos/mutex os resultados foram consistentes.
