@@ -6,7 +6,7 @@
 long double sum = 0;
 int thread_count = 2;
 int n = 100000;
-pthread_t calculadoras[2]; // Cria o array de filosofos com tipo Thread
+pthread_t calculadoras[2]; // Cria o array de Thread
 
 void *calcula(void *arg){
     long my_rank = (long) arg;
@@ -36,6 +36,6 @@ int main()
         pthread_join(calculadoras[i], NULL); 
     }
     
-    printf("Sum = %Lf\n", 4*sum);
+    printf("Pi = %Lf\n", 4*sum);
     return 0;
 }
