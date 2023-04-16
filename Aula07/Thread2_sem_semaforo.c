@@ -16,7 +16,7 @@ void *calcula(void *arg){
     long long my_last_i = my_first_i + my_n;
   
     for(i = my_first_i; i < my_last_i; i++){
-        if(my_first_i % 2 == 0){
+        if(i % 2 == 0){
             sum += (1.0/(2* i+1));
         }else{
             sum += ((-1.0)/(2* i+1));
