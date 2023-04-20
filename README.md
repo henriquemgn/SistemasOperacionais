@@ -32,3 +32,8 @@ Implemente uma solução utilizando Mutex e comparece com a anterior. O que mudo
 
 R: Como os semaforos/mutex impedem que seja acessado o elemento na memória caso dito elemento ja esteja em uso, não ocorre a competição para alterar a memoria. 
 Enquanto sem os semaforos/mutex estava variando entre valores estranhos, com a utilização dos semaforos/mutex os resultados foram consistentes.
+
+## Aula 8 - Memória - 20/04/2023
+
+Calcule o máximo de elementos possíveis na fila, considerando a memória disponível no computador.
+R: Assumindo a maquina virtual com 200000 de memória livre, podemos calcular o número maximo de elementos como 200000/16 = 12500 elementos, isso, porém, ignora o resto do custo do programa, mas tomando apenas o peso das celulas seria isso.
