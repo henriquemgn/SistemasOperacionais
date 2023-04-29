@@ -68,7 +68,6 @@ void *transacao(void* arg){
 int main(){
   to.saldo = 1000;
   from.saldo = 1000;
-  printf("Teste.\n");
 
   thread.saldo1 = to.saldo;
   thread.saldo2 = from.saldo;
