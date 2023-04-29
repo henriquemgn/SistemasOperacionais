@@ -37,3 +37,18 @@ Enquanto sem os semaforos/mutex estava variando entre valores estranhos, com a u
 
 Calcule o máximo de elementos possíveis na fila, considerando a memória disponível no computador.
 R: Assumindo a maquina virtual com 200000 de memória livre, podemos calcular o número maximo de elementos como 200000/16 = 12500 elementos, isso, porém, ignora o resto do custo do programa, mas tomando apenas o peso das celulas seria isso.
+
+## Projeto 2
+
+Considere os seguintes requisitos para o problema acima:
+1. A conta to pode receber mais de uma transferência simultânea;
+    R: A utilização de threads faz com que as transferencias sejam simultaneas.
+2. A conta from pode enviar mais de uma transferência simultânea;
+    R: A utilização de threads faz com que as transferencias sejam simultaneas.
+3. A conta from não pode enviar dinheiro se não tiver mais saldo;
+    R: A verificação do while(saldo_to > valor && saldo_from > valor), evita que seja realizada transações sem saldo.
+4. A conta to pode trocar de ordem com a conta from, ou seja, a conta que enviava pode receber e a conta que recebia pode enviar;
+    R: A variavel Tag foi utilizada para que a ordem de quem envia e quem recebe seja trocada de maneira aleatoria utilizando rand().
+5. Poderão ser realizadas até 100 transações simultâneas de transferência.
+    R: São criadas 100 threads para que sejam realizadas 100 transações simultaneas de transferência.
+    
