@@ -41,14 +41,14 @@ R: Assumindo a maquina virtual com 200000 de memória livre, podemos calcular o 
 ## Projeto 2
 
 Considere os seguintes requisitos para o problema acima:
-1. A conta to pode receber mais de uma transferência simultânea;
+1. A conta to pode receber mais de uma transferência simultânea;<br>
     R: A utilização de threads faz com que as transferencias sejam simultaneas.
-2. A conta from pode enviar mais de uma transferência simultânea;
+2. A conta from pode enviar mais de uma transferência simultânea;<br>
     R: A utilização de threads faz com que as transferencias sejam simultaneas.
-3. A conta from não pode enviar dinheiro se não tiver mais saldo;
+3. A conta from não pode enviar dinheiro se não tiver mais saldo;<br>
     R: A verificação do while(saldo_to > valor && saldo_from > valor), evita que seja realizada transações sem saldo.
-4. A conta to pode trocar de ordem com a conta from, ou seja, a conta que enviava pode receber e a conta que recebia pode enviar;
+4. A conta to pode trocar de ordem com a conta from, ou seja, a conta que enviava pode receber e a conta que recebia pode enviar;<br>
     R: A variavel Tag foi utilizada para que a ordem de quem envia e quem recebe seja trocada de maneira aleatoria utilizando rand().
-5. Poderão ser realizadas até 100 transações simultâneas de transferência.
+5. Poderão ser realizadas até 100 transações simultâneas de transferência.<br>
     R: São criadas 100 threads para que sejam realizadas 100 transações simultaneas de transferência.
     
