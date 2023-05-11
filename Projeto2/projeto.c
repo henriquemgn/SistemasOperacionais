@@ -116,7 +116,6 @@ int main() {
 
   for (int i = 0; i < 100; i++) {
     pthread_join(transferencia[i], NULL); // Verifica se thread finalizou
-    if (i < 2)
-      sem_destroy(&saldo[i]); // destroi semaforo
+    sem_destroy(&saldo[i]); // destroi semaforo
   }
 }
